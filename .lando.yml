@@ -2,3 +2,4 @@ name: test-task
 recipe: drupal9
 config:
   webroot: web
+  php: 7.4
