@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - ausy_event_registration
+  theme:
+    - olivero
+id: registrationcount
+theme: olivero
+region: content
+weight: -7
+provider: null
+plugin: ausy_registration_count_block
+settings:
+  id: ausy_registration_count_block
+  label: 'Registration count'
+  label_display: '0'
+  provider: ausy_event_registration
+visibility: {  }

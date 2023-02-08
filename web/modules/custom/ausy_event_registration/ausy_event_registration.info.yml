@@ -1,0 +1,5 @@
+name: AUSY Event Registration
+type: module
+description: Provides additional functionality to register users for an event.
+package: Custom
+core_version_requirement: ^9 || ^10

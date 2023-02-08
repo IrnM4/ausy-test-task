@@ -1,0 +1,27 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the AUSY Event Registration module.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function ausy_event_registration_install() {
+  $departments = [
+    'finance' => 'Finance',
+    'it' => 'IT',
+    'consulting' => 'Consulting',
+  ];
+
+  foreach ($departments as $machine_name => $department_name) {
+    $newDepartment = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->create([
+      'vid' => 'department',
+      'name' => $department_name,
+      'field_machine_name' => $machine_name,
+    ]);
+    $newDepartment->save();
+  }
+
+}

@@ -1,0 +1,4 @@
+services:
+  ausy_event_registration.registration_manager:
+    class: Drupal\ausy_event_registration\RegistrationManager
+    arguments: [ '@database' ]

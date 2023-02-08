@@ -1,0 +1,5 @@
+ausy_event_registration.add_department:
+  title: 'Add Department'
+  route_name: ausy_event_registration.add_department_form
+  menu_name: admin
+  parent: system.admin_config
