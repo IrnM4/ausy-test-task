@@ -1,0 +1,51 @@
+# Ignore non-custom parts of Drupal.
+/web/sites/*/files
+
+# Ignore binaries.
+/bin
+
+# Ignore non-custom parts of Drupal.
+/database
+/web/core
+/web/libraries
+/web/modules/contrib
+/web/profiles/contrib
+/web/themes/contrib
+
+/web/sites/default/files/*
+
+# Ignore Composer-managed dependencies.
+/vendor
+/.travis.yml
+/README.md
+/web/.csslintrc
+/web/.editorconfig
+/web/.eslintignore
+/web/.eslintrc.json
+/web/.gitattributes
+/web/.ht.router.php
+/web/.htaccess
+/web/autoload.php
+/web/index.php
+/web/robots.txt
+/web/update.php
+/web/web.config
+/web/sites/development.services.yml
+/web/sites/local.development.services.yml
+/web/sites/example.settings.local.php
+/web/sites/example.sites.php
+/web/sites/default/default.services.yml
+/web/sites/default/default.settings.php
+/web/sites/default/settings.local.php
+/drush/README.md
+.idea/*
+/web/sites/default/services.yml
+web/sites/*/*.settings.php
+/web/sites/sites.local.php
+
+# Ignore editors
+.vscode
+
+.DS_Store
+/.editorconfig
+/.gitattributes
