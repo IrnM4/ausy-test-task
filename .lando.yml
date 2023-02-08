@@ -3,3 +3,17 @@ recipe: drupal9
 config:
   webroot: web
   php: 7.4
+services:
+  appserver:
+    cmd: "drush --root=/app/web"
+tooling:
+  drush:
+    service: appserver
+    env:
+      DRUSH_OPTIONS_URI: "https://ausy-test-task.lndo.site/"
+  drupal-install:
+    description: Runs Drupal installation
+    service: appserver
+    cmd:
+      - appserver: echo "**************************"; echo "Installing Drupal"; echo "**************************";
+      - appserver: drush site-install --locale=en --site-name="AUSY Test task" --db-url=mysql://drupal9:drupal9@database:3306/drupal9 --account-name=Irina --account-pass=IrinaAdminUser --account-mail=zabavo4kam@gmail.com --site-mail=zabavo4kam@gmail.com
