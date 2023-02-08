@@ -1,4 +1,4 @@
-name: test-task
+name: ausy-test-task
 recipe: drupal9
 config:
   webroot: web
