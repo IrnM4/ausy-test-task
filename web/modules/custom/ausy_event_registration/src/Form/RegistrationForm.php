@@ -2,6 +2,7 @@
 
 namespace Drupal\ausy_event_registration\Form;
 
+use Drupal\Component\Utility\Html;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
@@ -117,9 +118,9 @@ class RegistrationForm extends FormBase {
    * {@inheritdoc}
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
-    $onePlus = $form_state->getValue('one_plus');
-    $amountOfKids = $form_state->getValue('amount_of_kids');
-    $amountOfVegetarians = $form_state->getValue('amount_of_vegetarians');
+    $onePlus = Html::escape($form_state->getValue('one_plus'));
+    $amountOfKids = Html::escape($form_state->getValue('amount_of_kids'));
+    $amountOfVegetarians = Html::escape($form_state->getValue('amount_of_vegetarians'));
 
     if ($this->isRegistred($form_state->getValue('email'))) {
       $form_state->setErrorByName('email', $this->t('Email address already registered.'));
@@ -134,11 +135,11 @@ class RegistrationForm extends FormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    $employeeName = $form_state->getValue('employee_name');
-    $onePlus = $form_state->getValue('one_plus');
-    $amountOfKids = $form_state->getValue('amount_of_kids');
-    $amountOfVegetarians = $form_state->getValue('amount_of_vegetarians');
-    $email = $form_state->getValue('email');
+    $employeeName = Html::escape($form_state->getValue('employee_name'));
+    $onePlus = Html::escape($form_state->getValue('one_plus'));
+    $amountOfKids = Html::escape($form_state->getValue('amount_of_kids'));
+    $amountOfVegetarians = Html::escape($form_state->getValue('amount_of_vegetarians'));
+    $email = Html::escape($form_state->getValue('email'));
     $department = $this->routeMatch->getParameter('department');
 
     $registrationNode = $this->entityTypeManager->getStorage('node')->create([

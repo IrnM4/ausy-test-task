@@ -2,6 +2,7 @@
 
 namespace Drupal\ausy_event_registration\Form;
 
+use Drupal\Component\Utility\Html;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
@@ -91,7 +92,7 @@ class AddDepartmentForm extends FormBase {
    * {@inheritdoc}
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
-    $department = $form_state->getValue('department_machine_name');
+    $department = Html::escape($form_state->getValue('department_machine_name'));
 
     if ($this->departmentExists($department)) {
       $form_state->setErrorByName('department_machine_name', $this->t('The machine name already exists.'));
@@ -102,8 +103,8 @@ class AddDepartmentForm extends FormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    $departmentName = $form_state->getValue('department_name');
-    $department = $form_state->getValue('department_machine_name');
+    $departmentName = Html::escape($form_state->getValue('department_name'));
+    $department = Html::escape($form_state->getValue('department_machine_name'));
 
     $newDepartment = $this->entityTypeManager->getStorage('taxonomy_term')->create([
       'vid' => 'department',
